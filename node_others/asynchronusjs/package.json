@@ -1,0 +1,15 @@
+{
+  "name": "asynchronusjs",
+  "version": "1.0.0",
+  "description": "Liarning asynchronous",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ravindra Lodhi",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.7",
+    "superagent": "^6.1.0"
+  }
+}
