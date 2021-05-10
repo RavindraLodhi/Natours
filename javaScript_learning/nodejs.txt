@@ -1,0 +1,33 @@
+1. what is cors.
+Ans : - Quora. What is CORS? ... CORS (Cross-Origin Resource Sharing) is a standard for accessing web resources on different domains. 
+        In browsers specifically, there are certain rules that don't allow you to reach from one website to another website,
+        and there are good reasons for that.
+
+
+java pseudo code have to read
+
+
+for understad of event loop, single thrad,event Queue, all process
+https://www.journaldev.com/7462/node-js-architecture-single-threaded-event-loop?unapproved=48045&moderation-hash=747d8be737738752f02af6ac5f1fd219#comment-48045;
+
+{"Result":"1","Status":null,"CandidateID":"523","EmailID":"pk1nonly@gmail.com",
+"MobileNo":"8985756108","VerifyEmailSent":null,"Message":"Signed-In Success",
+"ActiveStatus":"1","FirstName":"Prashanth","LastName":"Kumar",
+"Token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUyMyIsIm5iZiI6MTU5Mzc3MjYzMSwiZXhwIjoxNTkzODA4NjMxLCJpYXQiOjE1OTM3NzI2MzF9.F0EaBPFyaG825l83BopY8S24lO57ngTU5OCjT1SQ-C0",
+"LogRecorded":"Log Recorded","ProfilePic":"https://apis.examroom.ai/ImageResource\\UserProfile\\020190603105535.PNG",
+"IsDesktop":"True","CandidateTypeID":"1","LogoStatus":1,
+"Address":{"Country":"","State":"","City":"","PostalCode":""},
+"Academic":{"UniversityID":"","UniversityName":"","CampusID":"","CampusName":"","DepartmentID":"","DepartmentName":"","CourseID":"",
+"CourseName":"","SubjectID":"","SubjectName":""},"RoleID":10,"IsBrowser":"True","TheamID":null,"TheamColurID":null,"LogoImageURL":null,"TheamName":null,"ColurCode":null,"ClientID":"83"}
+
+
+{"Result":"1","Status":"Signed-In Success","ClientVerifyID":"1","ClientID":"83",
+"LogResult":"1","ClientFirstName":"Prashant","ClientLastName":"Kumar","ContactMobileNo":"8985756108",
+"ContactEmailID":"pk1nonly@gmail.com","VerifyEmailSent":0,"Message":null,"ActiveStatus":"ACTIVE","isActive":0,
+"Token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjgzLnF3ZXJ0eTEyMyIsIm5iZiI6MTU5Mzc3MzI0MywiZXhwIjoxNTkzODA5MjQzLCJpYXQiOjE1OTM3NzMyNDN9.0G6IsM0DNFdZWDl3dtDDJHu_H-mFe4UWv7pQd5xu9_Q",
+"LogRecorded":"Log Recorded","ProfilePic":"https://apis.examroom.ai/ImageResource\\UserProfile\\020191217124844.PNG","UniversityID":"8",
+"CampusID":null,"RoleID":8,"Address":{"Country":"India","State":"Uttar Pradesh","City":"Anandnagar","PostalCode":"273155"},
+"DepartmentID":null,"OrganizationID":"8","UniversityName":"Bangalore University","CampusName":null,"FacultyID":null,"DepartmentName":null,"CourseName":null,
+"SubjectName":null,"SubjectID":null,"CourseID":null,"OrgProfilePic":"https://apis.examroom.ai/ImageResource\\UserProfile\\12320181220071420.PNG"}
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://unpkg.com/ml5@0.4.1/dist/ml5.min.js" type="text/javascript"></script>
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            width: 100vw;
+            height: 100vw;
+        }
+    </style>
+</head>
+
+<body>
+    <video #video id="publisher" autoplay playsinline [ngStyle]="getStyles()"></video>
+    <img #picture>
+    <canvas #canvas id="canvas"></canvas>
+    <button onclick="takePicture()">Take Picture</button>
+
+    <pre>{{labels | json}}</pre>
+
+    <label><input type="checkbox" [checked]="blur" (change)="blur = !blur">blur</label>
+    <label><input type="checkbox" [checked]="sepia" (change)="sepia = !sepia">sepia</label>
+    <label><input type="checkbox" [checked]="invert" (change)="invert = !invert">invert</label>
+    <label><input type="checkbox" [checked]="flip" (change)="flip = !flip">flip</label>
+    <script>
+
+        let pose;
+        let videoElement;
+        let poseNet;
+        videoElement = document.getElementById("publisher");
+        navigator.mediaDevices
+            .getUserMedia({
+                video: { facingMode: 'environment' },
+            })
+            .then(stream => {
+                videoElement.srcObject = stream;
+                videoElement.width = 600;
+                videoElement.height = 600;
+            });
+
+        // Create a new poseNet method
+        poseNet = ml5.poseNet(videoElement, modelLoaded);
+
+        // When the model is loaded
+        function modelLoaded() {
+            console.log("Model Loaded!");
+        }
+
+        poseNet.on("pose", gotPosees);
+        function gotPosees(poses) {
+            console.log(poses);
+            if (poses.length > 0) {
+                pose = poses[0].pose;
+
+            }
+        }
+        /// poseNet.singlePose(videoElement,modelLoaded);
+
+        function draw() {
+            console.log("running draw");
+            
+            image(video, 0, 0, width, height);
+
+            // We can call both functions to draw all keypoints and the skeletons
+            // drawKeypoints();
+            // drawSkeleton();
+        }
+
+        function takePicture() {
+            var canvasElement = document.getElementById("canvas");
+            var context = canvasElement.getContext('2d');
+            context.drawImage(this.videoElement, 0, 0, canvasElement.width, canvasElement.height);
+            // const dataUrl = canvasElement.toDataURL('image/jpeg', 1.0);
+            // console.log('wat we got here is', dataUrl);
+            // const image = atob(dataUrl.split('data:image/jpeg;base64,')[1]);
+            //   const length = image.length;
+            //   const imageBytes = new ArrayBuffer(length);
+            //   const ua = new Uint8Array(imageBytes);
+            //   for (let i = 0; i < length; i++) {
+            //     ua[i] = image.charCodeAt(i);
+            //   }
+            //   this.callRekognition(imageBytes);
+
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+1) how to create database
+   Create DATABASE databaseName.
+
+2) drop DATABASE
+   DROP DATABASE databaseName.
+
+3) update Database name;
+   alter database semple1 modify Name = sample2;
+  
+3)take a backup
+use :- The BACKUP DATABASE statement is used in SQL Server to create a full back up of an existing SQL database.
+
+BACKUP DATABASE databasename
+TO DISK = 'filepath';
+
+4)SQL ALTER TABLE Statement.
+defination :- The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.The ALTER TABLE statement is also used to add and drop various
+constraints on an existing table.
+
+a) ALTER TABLE - ADD Column:-To add a column in a table, use the following syntax:
+  TALTER TABLE table_name ADD column_name datatype;
+
+b)ALTER TABLE - DROP COLUMN:-To delete a column in a table, use the following syntax (notice that some database systems don't allow deleting a column) 
+  ALTER TABLE table_nameDROP COLUMN column_name;
+	
+c)ALTER TABLE - ALTER/MODIFY COLUMN : To change the data type of a column in a table, use the following syntax:
+   *)SQL Server / MS Access: ALTER TABLE table_name ALTER COLUMN column_name datatype;
+   **)My SQL / Oracle (prior version 10G):- ALTER TABLE table_name MODIFY COLUMN column_name datatype;
+   ***)Oracle 10G and later:- ALTER TABLE table_name MODIFY column_name datatype;
+
+d) rename th etable :  EXEC sp_rename 'currentTableName', 'modifyingTAbleName';
+
+5)  constraint : SQL constraints are used to specify rules for the data in a table.
+    NOT NULL - Ensures that a column cannot have a NULL value
+    UNIQUE - Ensures that all values in a column are different
+    PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+    FOREIGN KEY - Uniquely identifies a row/record in another table
+    CHECK - Ensures that all values in a column satisfies a specific condition
+    DEFAULT - Sets a default value for a column when no value is specified
+    INDEX - Used to create and retrieve data from the database very quickly
+
+6) adding a default constraint :- 
+  ALTER TABLE TABLENAME ADD CONSTRAINT default_constraint_name Default value_name FOR colom_name;
+
+7) CREATE AND DROP CONSTRAINT:- Iit is use to validation.
+  CREATE CONSTRAINT:- ALTER TABLE tblPerson ADD CONSTRAINT CK_tblPerson CHECK (AGE>0 AND AGE<150);
+  DROP CONSTRAINT  :- ALTER TABLE TABLNAME DROP CONSTRAINT checkConstraintName
+
+8) identiy column : TO ADD AUTO INCREAMENT THEN WE HAVE TO IENTITY COLMN 
+   CREATE A TABLE WITH INDENTITY COLUMN :- CREATE TABLE PARSON_IDENTITY_TABLE(personID INT NOT NULL PRIMARY KEY IDENTITY(1,1),[Name]  varchar(150))
+   IF WANT TO SET OWN DATA TO IDENTITY COLUMN THEN USE *SET  IDENTITY_INSERT PARSON_IDENTITY_TABLE ON* AFTER SET THE VALUE AGAIN *SET  IDENTITY_INSERT PARSON_IDENTITY_TABLE OFF*;
+   IF YOU DELETE ALL ROW OF THE TABLE AGAIN YOU WILL INSERT DATA IDENTITY COLUMN WILL START FROM END OF THE VALUE IF YOU WANT TO START FROM AGAIN 0 THEN HAVE O RUN QUARY AS :
+   *DBCC CHECKIDENT(PARSON_IDENTITY_TABLE,RESEED,0);*
+   HOW TO GET LAST IDENTITY :-  select SCOPE_IDENTITY();
+
+9) CREATE A TRIGGER:- 
+ CREATE TRIGGER triggerName ON tableName FOR INSERT
+ AS 
+ BEGIN 
+    write what you want process.
+ End
+
+10)
+    

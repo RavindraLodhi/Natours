@@ -1,0 +1,60 @@
+
+
+db.getCollection('products').update({'product_title':''},{$set : {'price':20}})ceeate databas : use "Databas name" we can switch one databas to anathor use same commandd;
+
+insert Document : db.collectionName.insert(JSON FORMAT);
+
+show list of database : show dbs;
+
+show current db : db
+
+to delet or drop database : db.dropDatabase() this comand will delete same databse if want to delet selected databse/ with name then switch db "use dbName
+then db.dropDatabase();
+
+
+to create collection : db.creatCollection(name,option);
+
+to see all collections : show collections;
+
+to Drop collection : db.collectionName.drop().
+
+to show collection Data : db.collectionName.find() or db.collectionsName.find().pretty() it return all document if want to one document then use db.collectionName.findOne().
+
+to see document based on key value the use : db.collectionName.find({"key":"value"}).pritty() pritty is optional we can also use and(&& and ||) condition
+db.collectionName.find({<key>:{$lt:50}}).pretty();{less then=ln, Less Than Equals=lte, Greater Than=gt, Greater Than Equals=gte, Not Equals=ne}
+with condtions (&&) :db.mycol.find({$and: [{key1: value1}, {key2:value2}]}).pretty()
+with condition (||) :>db.mycol.find({$or: [{key1: value1}, {key2:value2}]}).pretty()
+
+
+MongoDB's update() and save() methods are used to update document into a collection. The update() 
+method updates the values in the existing document while the save() method replaces the existing document with the document passed in save() method.
+
+for update : db.getCollection('User').update({"_id":ObjectId("5d88d15d337dac37dc17fbdd"),{$set:{'name':'New MongoDB Tutorial'}}})
+we cane update multiple document by :db.mycol.update({'title':'MongoDB Overview'},{$set:{'title':'New MongoDB Tutorial'}},{multi:true})
+for save : db.getCollection('User').save({"_id":ObjectId("5d88d15d337dac37dc17fbdd"),"name":"sanman"})
+
+
+to delete a document : 
+ remove by id : db.deleteDocument.remove({"_id":ObjectId("5d8a14ca8e2520bdef17c153")});
+ remove all document :  db.deleteDocument.remove({})
+ remove one document :  db.deleteDocument.remove({"name":"ram"},1)
+
+
+
+projection : In MongoDB, projection means selecting only the necessary data rather than selecting whole of the data of a document
+to avoid unused data:    db.deleteDocument.find({},{"name":1,"age":1,"_id":0})
+
+Limit() :-o limit the records in MongoDB, you need to use limit() method.
+         db.COLLECTION_NAME.find().limit(NUMBER)
+
+
+sort() :-  db.COLLECTION_NAME.find().sort({KEY:1})
+
+
+aggregate():- this mathod use to count and its returns a number;
+        > db.mycol.aggregate([{$group : {_id : "$by_user", num_tutorial : {$sum : 1}}}])
+
+
+
+
+db.getCollection('products').update({'product_title':'A'},{$set : {'price':20}})

@@ -1,0 +1,114 @@
+refrence link : https://www.youtube.com/watch?v=SuZa2nv24HE&list=PL_qizAfcpJ-MfBGyKVSt4a2kj_hJQ4yUT
+fileUploader : https://www.youtube.com/watch?v=-Hvmj8yXfyU
+fileUploaderWithMongodb  https://www.youtube.com/watch?v=7oiJj5FcyTQ
+**********************************************************************module******************************************************
+module :- what is module ?
+Ans :- module is the logical grouping of the copmonent and services.
+
+selector :- what is selector ?
+Ans :- selector is nothing it is refrance of the component. we can use this selector in html component as a tag. with the help of selector we can make parent child relectionship and also can pass 
+       value parent to child and child toparent component with the help of property binding.for passing value we have to use @input and @output directives.
+
+  	
+@Ngmodule :- @Ngmodule is a directive its accept object of array. its accept array like declearation,imports,providers,bootstrap
+
+         declearation :- it is a name of array we pass value in this array like coponent name, directives name and pipe; its give compile time error
+         imponts :  import also s a array name we pass in this array module name
+         providers : inside the providers we keep all services. that servies we using inside the module. its not give runtime error. becouse it is injective type
+         bootstap : it use to booting processing. which component we want to load first that component keeps inside this array.
+
+
+export : why we write export before classes ?
+Ans :- export means public if we write export before classes that mean we can use anyware.
+
+************************************************************End Module****************************************************************
+************************************************************Decoratore****************************************************************12:57 PM 6/30/2020    
+decorator:- what is decorators ?
+       1. decorators is the type script feture and are implimented as function. the name of decorator start with @ symbol following by bracket and argument.
+       2.decorators are simple functions that returns function.these function supply metadata to angular about the particular class, property,value,or methods...
+       3.decorator invoked at runtime.
+       4.decorator allow you to execute functions. for example @component executes the component function imported from angular 7
+
+common decorator : 
+     @NgModule  to define a modules.
+     @Component to define a components.
+     @Injectable todefine a services
+     @Input and @ouput  to define property that send and receive data from dom.
+
+ thare are many built-in decorator available in angular.  and many property on each decorator.
+
+type of decorator :- how many type of decorator in angular ?
+    thre are four types of dacorators decorators in angular
+    1.class decorator :- e.g. @Component and @NgModule
+    2.property decorators : e.g. for property inside the class we use @Input and @outut Decorator.
+    3.method decorator : for methode inside the class e.g. @HostListener
+    4.parameter decorator : for parameters inside the constructors, e.g. @Inject
+Note : each decorator has Uniqe role.
+
+metadata :- what is metadat ?
+And:- metadta is nothing it's just the information about component or class etc.
+
+*************************************************************End decorator**********************************************************
+*************************************************************Component*************************************************************
+
+component :- what is component ?
+And : component is a building block of the application also we can say that component is a class . it is use to iew the data.component are reuseable.
+      component has a decorator as @Comonent and inside this decorator has some metadata.
+      
+*****************************End component************************************************************************************
+*********************************************directives************************************************************************
+directives :- what s directive ?
+Ands:- directives are element which change the behavior of the DOM element there are three type of directives.
+      1.component Directive :  Directives with templates known as Components.
+      2.Structure Directive :  Directives that creates and destroys DOM elements known as Structural Directives
+       *ngIf,ngFor,ngIf #else,ngSwitch,ngelse then	
+      3.Attribute Directive :   Directives that manipulate DOM by changing behavior and appearance known as Attribute Directives
+
+*********************************************End directives************************************************************************
+
+*********************************************ng-container****************************************************************************
+ng-container :- What is ngContainer ?
+Ans:- ng-container is nothing but it is a angualar tag.
+
+use :- suppose we are using two condition in a div like ngIf and ngFor then it will throw the error.to solve this error we will use two div
+one  for ngIf and anathor is for ngFor it will work fine.if will see the inspect element then both div will create the DOM element.
+NOte :- if we will use ng-container then it will not create the dom element.
+
+*********************************************End ng-container****************************************************************************
+
+*********************************************Ng-Content**********************************************************************************
+Ng-Content :- ng-container is nothing but it is a angualar tag. Ng-Content is use to create a dynamic component. with the help of Ng-Content
+we can pass DOM element to the child component. if you want to pass two element the have to use class name inside the ng-container tag.
+
+
+life cycle hook
+contructor()
+ngonChange();
+ngoninit();
+ngDoCheck()
+
+
+
+
+
+     
+    
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

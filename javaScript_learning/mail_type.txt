@@ -1,0 +1,43 @@
+Subject: <Your Name> – Job Title, Job Reference Number (mentioned in Job Description)
+
+Dear Mr./Ms. <Hiring Manager’s Name>,
+
+I recently came across a job on your portal, which I am interested in applying for. The position of Software Engineer at ABC Company
+(Job Ref. No.) and its requirements completely matches with my skills and qualifications.
+
+I have recently graduated in Software Engineering from XYZ College and I am currently looking to apply my knowledge and skills in an
+organization of repute like <Company Name>.As a qualified Software Engineer, I am adept in application development & enhancement and 
+believe that will prove to be an asset for the company.Please take a minute to go through the attached cover letter and CV for your 
+consideration. It would be a pleasure if I can hear back from you regarding my job application for <Company Name>.
+
+ Sincerely,
+
+<Your Name>
+<Contact Number>
+<Address>
+<Email Address>
+
+Job Application Email Sample: 2
+
+Subject: <Your Name> – Job Title, Job Reference Number (mentioned in Job Description)
+
+Dear Mr./Ms. <Hiring Manager’s Name>,
+
+I am writing to apply for a recent job opening advertised on your website for the position of ‘Software Developer’.
+The position and responsibilities seem exciting and matching to my interest areas and career goals. I would like 
+to bring your attention to my key strengths for the job role:
+
+## Bachelor of Science in Software Engineering (BSSE)
+## Strong command in software engineering & programming principles across different platforms
+## Interest and knowledge of designing interfaces, testing and debugging codes
+## Knowledge of Languages: C#, AJAX, ASP.Net, XML, HTML and Web Service
+
+For more information, I have attached my cover letter and resume for your consideration.
+Thank you for your valuable time. I am always reachable on my email and phone number.
+Sincerely,
+
+<Your Name>
+<Contact Number>
+<Address>
+<Email Address>
+

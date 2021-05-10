@@ -64,7 +64,8 @@ exports.getAll = Model =>  catchAsy(async (req, res,next) => {
     .sort()
     .limit()
     .pagination();
-    const docs = await features.query.explain();
+    const docs = await features.query
+    //.explain(); to check the performance.
      res.status(200).json({
          requirstTimeAt : req.requestTime,
          status: "Success",
