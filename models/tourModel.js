@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const slugify = require('slugify');
+const Review = require("./reviewModel");
+//const User = require('../models/userModel.js')
 // const validator = require('validator')
 const tourSchema = new mongoose.Schema({
     name : {
@@ -73,29 +75,85 @@ const tourSchema = new mongoose.Schema({
       type : Date,
       default : Date.now
     },
-    startDates : [Date]
-},{
+    startDates : [Date],
+    startLocation : {
+      //Geo json
+      type : {
+        type : String,
+        default : "Point",
+        enum : ["Point"]
+      },
+      coordinates : [Number],
+      address  : String,
+      description : String
+    },
+    locations :[ {
+      //Geo json
+      type : {
+        type : String,
+        default : "Point",
+        enum : ["Point"]
+      },
+      coordinates : [Number],
+      address  : String,
+      description : String,
+      day : Number
+    }],
+    guides : [
+      {
+      type : mongoose.Schema.ObjectId,
+      ref : 'User'
+      }
+    ],
+    review : [
+      {
+        type : mongoose.Schema.ObjectId,
+        ref : 'Review'
+      }
+    ]
+}
+,{
   toJSON : {virtuals : true},
   toObject : {virtuals : true}
 })
+
+//indexes
+tourSchema.index({price : 1})
+
 
 //vertual property 
 tourSchema.virtual('durationWeaks').get( function(){
   return this.duration / 7;
 });
 
+//virtual populate
+tourSchema.virtual('reviews', {
+  ref : 'Review',
+  foreignField : 'tour',
+  localField : '_id'
+  
+})
+
 //DOCUMENT MIDDELWARE : RUN BEFORE .SAVE() AND CREATE.
 tourSchema.pre('save' , function(next) {
  this.slug = slugify(this.name, {lower : true})
  next();
 });
+
+// tourSchema.pre('save',async function (next) {
+//   const GuidePromises  = this.guides.map(async id => await User.findById(id));
+//   console.log(GuidePromises);
+//   this.guides = await Promise.all(GuidePromises);
+//   console.log(this.guides, "this.guides");
+//   next();
+// })
 //thi middelware will call after saving the data
 // tourSchema.post('save', function(doc,next){
 //   console.log(doc);
 //   next()
 // })
 
-
+//vertual populat
 
 
 
@@ -107,6 +165,14 @@ tourSchema.pre(/^find/, function(next){
 
 tourSchema.post(/^find/, function(doc,next){
   next();
+})
+
+tourSchema.pre(/^find/, function (next) {
+  this.populate({
+    path : 'guides',
+    select  : "-__v -passwordChangedAt"
+})
+next();
 })
 
 

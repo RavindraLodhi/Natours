@@ -1,8 +1,8 @@
 const fs =  require('fs');
 const Tour =require('../models/tourModel');
-const APIFeature = require('../utils/APIFeature');
 const  catchAsy = require("../utils/catchAsy");
 const appError = require('../utils/appError.js');
+const factury = require('../controllers/heandleFactory.js')
 /****************File system */
 // const tours = JSON.parse(
 //     fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
@@ -45,69 +45,11 @@ exports.aliseTopTours = (req,res,next) =>{
 // }
 
 /********Rouetr **********/
-exports.tour = catchAsy(async (req, res,next) => {
-        const features = new APIFeature(Tour.find(), req.query).sort()
-        .limit()
-        .pagination();
-        const tours = await features.query;
-         res.status(200).json({
-             requirstTimeAt : req.requestTime,
-             status: "Success",
-             result: tours.length,
-             data: {
-                 tours
-             }
-         })    
-});
-   
-exports.getTour = catchAsy(async (req, res,next) => {
-        const tour = await Tour.findById(req.params.id);
-        if(!tour){
-            return next(new appError(`Not tour found with that Id`,404))
-        } 
-        res.status(200).json(
-            {
-             "massage" : "success",
-             "data" : {tour}
-        })
-})
-
-exports.creatTour = catchAsy(async (req, res, next) => { 
-    await Tour.create(req.body).then(doc => {
-        res.status(201).json({
-            status : "Success", 
-            data : {doc}
-        })
-    })  
-})
-           
-exports.updateTpur = catchAsy(async (req, res,next) => {
-        const body = req.body;
-           await Tour.findByIdAndUpdate(req.params.id,body,{
-           new : true,
-           runValidators : true
-           }).then(data =>{
-            res.status(200).json({
-                status: 'success',
-                data: {
-                  tour: data
-                }
-              });
-           })
-});
-
-exports.deleteTour = catchAsy(async (req, res, next) => {
-        await Tour.findByIdAndDelete(req.params.id);
-        console.log("jdadjhadhahdad");
-        if(!Tour){
-            return next(new appError(`Not tour foud with that Id ${id}`))
-        } 
-
-        res.status(202).json({
-                status: 'Success',
-                data: "Tours Removed Successfully."
-        });
-});
+exports.tour = factury.getAll(Tour);
+exports.getTour =  factury.getOne(Tour, {path : 'reviews'})
+exports.creatTour =  factury.createOne(Tour);
+exports.updateTpur = factury.updateOne(Tour);
+exports.deleteTour = factury.deleteOne(Tour);
 
 exports.getTourStats = catchAsy( async (req,res,next) =>{
         const stats = await Tour.aggregate([

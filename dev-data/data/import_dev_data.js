@@ -1,7 +1,9 @@
 const mongoose = require("mongoose")
 const fs = require('fs')
 require('dotenv').config({path : "../../config.env"})
-const Tour = require('../../models/tourModel')
+const Tour = require('../../models/tourModel.js');
+const User = require('../../models/userModel.js');
+const Review = require('../../models/reviewModel.js');
 /****************************database conections********** */
 
 const DB = process.env.DATABASE.replace(
@@ -22,12 +24,16 @@ mongoose.connect(DB,{
 
  //Read file 
 
- const data = JSON.parse(fs.readFileSync('tours-simple.json', 'utf-8'));
+ const tourData = JSON.parse(fs.readFileSync('tours.json', 'utf-8'));
+ const userData = JSON.parse(fs.readFileSync('users.json', 'utf-8'));
+ const reviewData = JSON.parse(fs.readFileSync('reviews.json', 'utf-8'));
  //console.log(data);
 
  const importData = async () =>{
      try {
-         await Tour.create(data);
+         await Tour.create(tourData);
+         await User.create(userData,{validateBeforeSave : false});
+         await Review.create(reviewData);
          console.log('data added successfully');
          
      } catch (error) {
@@ -39,7 +45,10 @@ mongoose.connect(DB,{
 
  const  deleteData = async () =>{
      try {
-         await Tour.deleteMany().then(
+         await Tour.deleteMany()
+         await User.deleteMany()
+         await Review.deleteMany()
+         .then(
          ).catch(error => {
              console.log("err",error);
          });
@@ -51,9 +60,9 @@ mongoose.connect(DB,{
 
 
  console.log();
- importData();
+  importData();
 
- //deleteData();
+// deleteData();
 // console.log(process,argv);
 
 

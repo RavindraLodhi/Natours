@@ -12,7 +12,6 @@ class APIFeature {
         //url : http://localhost:8000/api/v1/tours?difficulty=easy&duration[gte]=5&price[lte]=600
         let queryStr = JSON.stringify(queryObj);
         queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, match =>`$${match}`);
-        console.log('queryStr',queryStr);
         this.query.find(JSON.parse(queryStr))
         // let query = Tour.find(JSON.parse(queryStr))
         return this;
